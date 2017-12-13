@@ -6,20 +6,31 @@
 
 /**
  *
- * @author CHANGE_THIS_TO_YOUR_NAME
+ * @author stahc1596
  */
-public class IceCream {
+public abstract class IceCream extends DessertItem{
 
-    public IceCream(String name, int cost)
-    {
-        
+    private int price;
+    
+    public IceCream(String name, int cost){
+        super(name);
+        price = cost;
     }
 
-  
-    public String toString()
-    {
-     
-       
+    @Override
+    public String toString(){
+        int space = 30 - DessertShoppe.cents2dollarsAndCents(price).length()
+                - super.getName().length();
+    }
+
+    public int getPrice(){
+        return price;
     }
     
+    @Override
+    public int getCost(){
+        return price;
+    }
+    
+    public abstract int getSundaeCost();
 }

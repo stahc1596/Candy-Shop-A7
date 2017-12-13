@@ -6,22 +6,28 @@
 
 /**
  *
- * @author CHANGE_THIS_TO_YOUR_NAME
+ * @author stahc1596
  */
-public class Sundae{
+public class Sundae extends IceCream{
     
-
+    private String toppingName;
+    private int toppingCost;
     
-    public Sundae(String icName, int icCost, String toppingName, int toppingCost)
-    {
-       
+    public Sundae(String icName, int icCost, String toppingName, int toppingCost){
+       super(icName, icCost);
+       this.toppingName = toppingName;
+       this.toppingCost = toppingCost;
     }
     
 
-    
-    public String toString()
-    {
+    @Override
+    public String toString(){
         
     }
-    
+
+    @Override
+    public int getCost() {
+        int cost = super.getPrice() + toppingCost;
+        return cost;
+    }    
 }

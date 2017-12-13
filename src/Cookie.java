@@ -6,20 +6,27 @@
 
 /**
  *
- * @author CHANGE_THIS_TO_YOUR_NAME
+ * @author stahc1596
  */
-public class Cookie {
+public class Cookie extends DessertItem{
     
+    private int num;
+    private int price;
     
-    public Cookie(String name, int number, int pricePer12)
-    {
+    public Cookie(String name, int number, int pricePer12){
+        super(name);
+        num = number;
+        price = pricePer12;
+    }
+
+    public String toString(){
         
     }
 
-    
-    public String toString()
-    {
-        
+    @Override
+    public int getCost(){
+        int cost = price*num;
+        return cost;
     }
     
 }

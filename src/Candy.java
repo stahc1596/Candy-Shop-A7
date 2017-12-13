@@ -6,20 +6,28 @@
 
 /**
  *
- * @author CHANGE_THIS_TO_YOUR_NAME
+ * @author stahc1596
  */
-public class Candy {
+public class Candy extends DessertItem{
     
+    private double weight;
+    private int price;
     
-    public Candy(String name, double weight, int pricePerLbs)
-    {
-
+    public Candy(String name, double weight, int pricePerLbs){
+        super(name);
+        this.weight = weight;
+        price = pricePerLbs;
     }
 
  
     
-    public String toString()
-    {
+    public String toString(){
        
+    }
+
+    @Override
+    public int getCost() {
+        int cost = (int)(weight*price);
+        return cost;
     }
 }
