@@ -8,7 +8,7 @@
  *
  * @author stahc1596
  */
-public abstract class IceCream extends DessertItem{
+public class IceCream extends DessertItem{
 
     private int price;
     
@@ -19,18 +19,23 @@ public abstract class IceCream extends DessertItem{
 
     @Override
     public String toString(){
-        int space = 30 - DessertShoppe.cents2dollarsAndCents(price).length()
+        int space = 30 - DessertShoppe.cents2dollarsAndCents(this.getCost()).length()
                 - super.getName().length();
+        String line = super.getName();
+        for(int i = 0; i < space; i++){
+            line += " ";
+        }
+        line += DessertShoppe.cents2dollarsAndCents(this.getCost());
+        return line;
     }
 
-    public int getPrice(){
-        return price;
-    }
+    
+    public String Name(){
+        return super.getName();
+    }   
     
     @Override
     public int getCost(){
         return price;
     }
-    
-    public abstract int getSundaeCost();
 }

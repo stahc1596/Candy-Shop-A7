@@ -22,12 +22,25 @@ public class Candy extends DessertItem{
  
     
     public String toString(){
-       
+       int space = 30 - super.getName().length() 
+                - DessertShoppe.cents2dollarsAndCents(this.getCost()).length();
+        String line = super.getName();
+        for(int i = 0; i < space; i++){
+            line += " ";
+        }
+        line += DessertShoppe.cents2dollarsAndCents(this.getCost());
+        return line;
     }
 
     @Override
     public int getCost() {
-        int cost = (int)(weight*price);
+        double exactCost = (weight*price);
+        int cost = 0;
+        if(exactCost >= (int)(exactCost) + 0.5){
+            cost = (int)(exactCost) + 1;
+        }else{
+            cost = (int)(exactCost);
+        }
         return cost;
     }
 }
